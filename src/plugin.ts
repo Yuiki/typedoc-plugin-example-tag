@@ -42,7 +42,7 @@ export class ExampleTagPlugin extends ConverterComponent {
         const index = indexes[0];
 
         comment.text += `#### Example\n\`\`\`${this._prefLang}${comment.tags[index].text}\`\`\``;
-        comment.tags.splice(index);
+        comment.tags.splice(index, 1);
 
         continue;
       }
@@ -55,7 +55,7 @@ export class ExampleTagPlugin extends ConverterComponent {
           comment.text += `\n`;
       });
 
-      indexes.reverse().forEach((index) => comment.tags.splice(index));
+      indexes.reverse().forEach((index) => comment.tags.splice(index, 1));
     }
   }
 }

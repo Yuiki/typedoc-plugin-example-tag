@@ -41,7 +41,7 @@ let ExampleTagPlugin = class ExampleTagPlugin extends components_1.ConverterComp
             if (length === 1) {
                 const index = indexes[0];
                 comment.text += `#### Example\n\`\`\`${this._prefLang}${comment.tags[index].text}\`\`\``;
-                comment.tags.splice(index);
+                comment.tags.splice(index, 1);
                 continue;
             }
             let counter = 0;
@@ -50,7 +50,7 @@ let ExampleTagPlugin = class ExampleTagPlugin extends components_1.ConverterComp
                 if (counter !== length)
                     comment.text += `\n`;
             });
-            indexes.reverse().forEach((index) => comment.tags.splice(index));
+            indexes.reverse().forEach((index) => comment.tags.splice(index, 1));
         }
     }
 };
